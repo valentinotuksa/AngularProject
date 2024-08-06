@@ -1,0 +1,11 @@
+<div class="table-search">
+    <div class="search-container">
+        <app-search (searchValueChange)="onSearchUpdated($event)"></app-search>
+    </div>
+
+    <app-multiselect
+        class="multiselect"
+        [options]="options"
+        (selectedOptionsEmitter)="onSelectedOptions($event)"
+    ></app-multiselect>
+</div>

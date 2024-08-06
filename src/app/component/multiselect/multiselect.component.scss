@@ -1,0 +1,91 @@
+$option-width: minmax(150px, 1fr);
+$primary-color: #007bff;
+$secondary-color: #54a6ff;
+$background-color: #f6f8f8;
+$border-color: #dee2e6;
+$hover-background-color: #e2e6ea;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+@mixin option($background-color, $hover-color, $text-color: black) {
+    cursor: pointer;
+    text-align: center;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 4px;
+    color: $text-color;
+    background-color: $background-color;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+.multiselect-container {
+    position: relative;
+    background-color: $background-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $shadow-color;
+
+    .input-container {
+        display: grid;
+        min-height: 36px;
+        grid-template-columns: 1fr auto;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        padding: 8px;
+        background-color: white;
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+
+        .selected-options-container {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: $option-width;
+            align-items: center;
+            scrollbar-width: thin;
+            overflow: auto;
+
+            @media screen and (max-width: 768px) {
+                grid-auto-flow: row;
+                grid-template-columns: repeat(auto-fill, $option-width);
+            }
+
+            @media screen and (max-width: 576px) {
+                grid-template-columns: 1fr;
+            }
+
+            .selected-option {
+                @include option($primary-color, $secondary-color, white);
+            }
+        }
+
+        .search {
+            min-width: 200px;
+        }
+    }
+
+    .options-container {
+        box-sizing: border-box;
+        position: absolute;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, $option-width);
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        background-color: white;
+        border-top: none;
+        padding: 5px;
+        gap: 10px;
+        box-shadow: 0 4px 8px $shadow-color;
+
+        @media screen and (max-width: 576px) {
+            grid-template-columns: 1fr;
+        }
+
+        .option {
+            @include option($background-color, $hover-background-color);
+        }
+    }
+}

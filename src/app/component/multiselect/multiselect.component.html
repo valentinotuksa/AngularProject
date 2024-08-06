@@ -1,0 +1,21 @@
+<div class="multiselect-container" appClickOutside (clickOutside)="closeDropdown()">
+    <div class="input-container">
+        <app-search
+            class="search"
+            [searchValue]="searchTerm"
+            (searchValueChange)="onInput($event)"
+            (focus)="openDropdown()"
+            placeholder="Search titles..."
+        ></app-search>
+        <div class="selected-options-container">
+            <span *ngFor="let item of selectedOptions" (click)="toggleSelection(item)" class="selected-option">
+                {{ item }}
+            </span>
+        </div>
+    </div>
+    <div *ngIf="dropdownVisible" class="options-container">
+        <div *ngFor="let option of filteredOptions" class="option" (click)="toggleSelection(option)">
+            {{ option }}
+        </div>
+    </div>
+</div>

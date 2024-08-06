@@ -1,0 +1,10 @@
+<input
+    #searchInput
+    type="text"
+    [placeholder]="placeholder"
+    class="searchBar"
+    [(ngModel)]="searchValue"
+    (input)="onInput()"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+/>

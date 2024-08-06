@@ -1,19 +1,44 @@
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Department</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let employee of employees">
-      <td>{{ employee.id }}</td>
-      <td>{{ employee.firstname }}</td>
-      <td>{{ employee.lastname }}</td>
-      <td>{{ employee.dateOfBirth }}</td>
-      <td>{{ employee.jobTitle }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="employeeTable">
+    <app-table-search
+        (search)="onSearch($event)"
+        (multiselectOptionsSelected)="onMultiselectOptionsSelected($event)"
+        [options]="getAllJobTitles()"
+    ></app-table-search>
+
+    <table>
+        <thead>
+            <tr>
+                <th
+                    *ngFor="let column of getDataColumns()"
+                    (click)="onClickSort(column)"
+                    [ngClass]="{ active: column === sortedColumn }"
+                >
+                    <div class="temp">
+                        <div>
+                            {{ column | splitCamelCase | capitalizeFirst }}
+                        </div>
+                        <div *ngIf="column === sortedColumn">
+                            {{ sortAscending ? '▲' : '▼' }}
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeesOnCurrentPage">
+                <td *ngFor="let column of getDataColumns()">
+                    <!-- {{ employee[column] }} -->
+                    <span
+                        [innerHTML]="column === 'jobTitle' ? employee[column] : getHighlightedText(employee[column])"
+                    ></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-pagination
+        [numberOfItems]="numberOfItems"
+        [itemsPerPage]="itemsPerPage"
+        [currentPage]="currentPage"
+        (changedPage)="onChangedPage($event)"
+    ></app-pagination>
+</div>

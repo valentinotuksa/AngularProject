@@ -1,0 +1,7 @@
+<div class="pagination">
+    <a href="#" class="item">«</a>
+    <a class="item" *ngFor="let page of pages" [ngClass]="{ active: page == currentPage }" (click)="pageClick(page)">
+        {{ page }}</a
+    >
+    <a href="#" class="item">»</a>
+</div>
