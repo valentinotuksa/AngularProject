@@ -143,7 +143,6 @@ export class EmployeeTableComponent implements OnInit {
         if (words.length === 0) return value;
 
         const regex = new RegExp(`(${words.join('|')})`, 'gi');
-        console.log(regex);
         return value.replace(regex, '<span class="highlight">$1</span>');
     }
 
