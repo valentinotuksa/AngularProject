@@ -77,7 +77,7 @@ export class EmployeeTableComponent implements OnInit {
         return Object.keys(this.employeesData[0]);
     }
 
-    getAllJobTitles(): Set<string> {
+    get allJobTitles(): Set<string> {
         return new Set(this.employeesData.map((employee) => employee.jobTitle).sort());
     }
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MultiselectComponent } from '../multiselect/multiselect.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from '../search/search.component';

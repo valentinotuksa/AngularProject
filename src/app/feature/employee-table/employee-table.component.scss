@@ -16,7 +16,6 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     flex-direction: column;
     justify-content: center;
     margin: 3% 10vw 0 10vw;
-
     @media screen and (max-width: 992px) {
         margin: 2vw;
     }
@@ -27,12 +26,17 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     color: #fff;
 }
 
+.table-container {
+    overflow: auto;
+}
+
 table {
+    min-width: 500px;
+    width: 100%;
     border: 1px solid $border-color;
     border-radius: 8px;
     box-shadow: 0 4px 8px $shadow-color;
     border-spacing: 0;
-    table-layout: fixed;
     overflow: hidden;
 }
 
@@ -51,12 +55,6 @@ td {
 
 th {
     text-align: left;
-    cursor: pointer;
     user-select: none;
-}
-
-.temp {
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
+    cursor: pointer;
 }

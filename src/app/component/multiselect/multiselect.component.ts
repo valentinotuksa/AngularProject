@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from '../search/search.component';
 import { ClickOutsideDirective } from '../../directive/click-outside.directive';
@@ -11,7 +11,7 @@ import { ClickOutsideDirective } from '../../directive/click-outside.directive';
     templateUrl: './multiselect.component.html',
     styleUrls: ['./multiselect.component.scss'],
 })
-export class MultiselectComponent implements OnInit {
+export class MultiselectComponent implements OnChanges {
     @Input() options: Set<string> = new Set<string>();
     @Output() selectedOptionsEmitter: EventEmitter<string[]> = new EventEmitter<string[]>();
 
@@ -19,15 +19,23 @@ export class MultiselectComponent implements OnInit {
     filteredOptions: Set<string> = new Set<string>();
     searchTerm: string = '';
     dropdownVisible: boolean = false;
+    private initialized: boolean = false;
 
-    ngOnInit(): void {
-        this.filteredOptions = new Set(this.options);
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['options']) {
+            if (this.filteredOptions.size < 1 && this.options.size > 1 && !this.initialized) {
+                this.options = changes['options'].currentValue;
+                this.filteredOptions = changes['options'].currentValue;
+                this.initialized = true;
+            }
+        }
     }
 
     openDropdown(): void {
         if (this.filteredOptions.size < 1) {
             return;
         }
+
         this.dropdownVisible = true;
     }
 
