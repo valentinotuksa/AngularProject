@@ -1,16 +1,16 @@
 <nav class="navbar">
-    <div class="navbar-brand">
-        <a href="/">Brand</a>
+    <div>
+        <a class="navbar-title" routerLink="/">Data Display</a>
     </div>
-    <div class="navbar-menu" [class.active]="menuActive">
-        <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/add">Add</a></li>
-        </ul>
-    </div>
-    <div class="navbar-toggle" (click)="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+
+    <ul class="navbar-menu">
+        <li class="navbar-button">
+            <a routerLink="/home" routerLinkActive="active-link"> Home</a>
+        </li>
+        <li class="navbar-button">
+            <a routerLink="/add" routerLinkActive="active-link">Add</a>
+        </li>
+    </ul>
+
+    <div class="navbar-toggle"></div>
 </nav>

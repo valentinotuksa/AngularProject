@@ -1,80 +1,81 @@
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f6f8f8;
-$border-color: #dee2e6;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
+// $primary-color: #007bff;
+// $secondary-color: #54a6ff;
+// $background-color: #f6f8f8;
+// $border-color: #dee2e6;
+// $hover-background-color: #e2e6ea;
+// $shadow-color: rgba(0, 0, 0, 0.1);
+// $border-radius: 10px;
 
-@mixin option($background-color, $hover-color, $text-color: black) {
-    cursor: pointer;
-    text-align: center;
-    padding: 2px 8px;
-    margin: 2px;
-    border-radius: 4px;
-    color: $text-color;
-    background-color: $background-color;
-
-    &:hover {
-        background-color: $hover-color;
-    }
-}
+$primary-color: hsl(240, 100%, 70%);
+$primary-hover-color: hsl(240, 100%, 80%);
+$background-active-color: hsl(240, 100%, 97%);
+$background-hover: hsl(240, 100%, 98%);
+$background-color: #fff;
+$border-radius: 10px;
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     background-color: $background-color;
-    border-bottom: 1px solid $border-color;
-    box-shadow: 0 4px 8px $shadow-color;
+    // border: 1px solid red;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    height: 50px;
+    overflow: hidden;
+}
 
-    .navbar-brand a {
-        color: $primary-color;
-        text-decoration: none;
-        font-size: 1.5rem;
-    }
+.navbar-title {
+    color: $primary-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
 
-    .navbar-menu {
-        display: flex;
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    height: 100%;
 
-        ul {
-            list-style: none;
+    .navbar-button {
+        min-width: 100px;
+        border-bottom: 2px solid $background-color;
+
+        a {
             display: flex;
-            gap: 1rem;
-
-            li a {
-                @include option($primary-color, $secondary-color, white);
-                text-decoration: none;
-            }
-        }
-    }
-
-    .navbar-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-
-        span {
-            background: $primary-color;
-            height: 2px;
-            margin: 4px;
-            width: 25px;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .navbar-menu {
-            display: none;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-
-            &.active {
-                display: flex;
-            }
+            height: 100%;
+            text-decoration: none;
+            color: #000;
         }
 
-        .navbar-toggle {
-            display: flex;
+        &:hover {
+            // transition background color and border color fade in and out
+            // transition:
+
+            background-color: $background-hover;
+            border-bottom: 2px solid $primary-hover-color;
         }
+    }
+}
+
+.active-link {
+    background-color: $background-active-color;
+    border-bottom: 2px solid $primary-color;
+
+    &:hover {
+        background-color: $background-hover;
+        border-bottom: 2px solid $primary-hover-color;
+    }
+}
+
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        display: block;
     }
 }
