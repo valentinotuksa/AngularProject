@@ -1,19 +1,21 @@
-<form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
-    <div>
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" ngModel required />
-    </div>
-    <div>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" ngModel required />
-    </div>
-    <div>
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" ngModel required />
-    </div>
-    <div>
-        <label for="position">Position:</label>
-        <input type="text" id="position" name="position" ngModel required />
-    </div>
-    <button type="submit" [disabled]="!addForm.form.valid">Submit</button>
-</form>
+<div class="form-container">
+    <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+        <div>
+            <label for="firstname">First Name:</label>
+            <input class="form-input" type="text" id="firstname" name="firstname" ngModel required />
+        </div>
+        <div>
+            <label for="lastname">Last Name:</label>
+            <input class="form-input" type="text" id="lastname" name="lastname" ngModel required />
+        </div>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input class="form-input" type="date" id="dob" name="dob" ngModel required />
+        </div>
+        <div>
+            <label for="position">Position:</label>
+            <input class="form-input" type="text" id="position" name="position" ngModel required />
+        </div>
+        <button class="form-submit" type="submit" [disabled]="!addForm.form.valid">Submit</button>
+    </form>
+</div>

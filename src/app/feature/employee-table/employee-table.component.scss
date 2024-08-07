@@ -1,13 +1,7 @@
-$option-width: minmax(150px, 1fr);
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f6f8f8;
-$border-color: #dee2e6;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
+@import '../../../assets/css/variables';
 
 .highlight {
-    color: $primary-color;
+    color: $primary-color-dark;
     font-weight: bold;
 }
 
@@ -15,46 +9,50 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 3% 10vw 0 10vw;
+    margin: 20px 10vw;
+
     @media screen and (max-width: 992px) {
-        margin: 2vw;
+        margin: 20px 2vw;
     }
 }
 
 .active {
     background-color: $primary-color;
-    color: #fff;
+    color: black;
 }
 
 .table-container {
+    @include shadow;
     overflow: auto;
 }
 
-table {
+.table {
+    @include shadow;
     min-width: 500px;
     width: 100%;
     border: 1px solid $border-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px $shadow-color;
+    border-radius: $border-radius;
     border-spacing: 0;
     overflow: hidden;
 }
 
-thead {
-    background-color: $background-color;
+.table-header {
+    background-color: $background-color-secondary;
 }
 
-th,
-td {
+.table-header-cell {
     padding: 10px;
-}
-
-td {
-    border-top: 1px solid $border-color;
-}
-
-th {
     text-align: left;
     user-select: none;
     cursor: pointer;
+}
+
+.table-data-cell {
+    padding: 10px;
+    border-top: 1px solid $border-color;
+}
+
+.table-header-text {
+    @include center;
+    justify-content: space-between;
 }

@@ -1,0 +1,26 @@
+$hue: 230;
+$primary-color-light: hsl($hue, 80%, 75%);
+$primary-color: hsl($hue, 80%, 70%);
+$primary-color-dark: hsl($hue, 80%, 65%);
+$text-color: hsl($hue, 80%, 20%);
+$background-color-primary: white;
+$background-color-secondary: hsl(180, 10%, 95%);
+$border-color: hsl(210, 14%, 89%);
+
+$border-radius: 10px;
+$option-width: minmax(150px, 1fr);
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@mixin border {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+}

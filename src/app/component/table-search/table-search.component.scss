@@ -1,22 +1,11 @@
-$option-width: minmax(150px, 1fr);
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f6f8f8;
-$border-color: #dee2e6;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
-
-@mixin border() {
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px $shadow-color;
-}
+@import '../../../assets/css/variables';
 
 .table-search {
+    @include border;
+    @include shadow;
     display: flex;
     padding: 10px;
-    @include border;
-    background-color: #fff;
+    background-color: $background-color-primary;
     margin-bottom: 10px;
     gap: 10px;
 
@@ -25,10 +14,11 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     }
 
     .search-container {
+        @include border;
+        @include shadow;
         box-sizing: border-box;
         flex: 0 0 40%;
         min-height: 36px;
-        @include border;
         padding: 8px;
     }
 

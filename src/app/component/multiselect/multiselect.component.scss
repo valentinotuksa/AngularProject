@@ -1,10 +1,4 @@
-$option-width: minmax(150px, 1fr);
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f6f8f8;
-$border-color: #dee2e6;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
+@import '../../../assets/css/variables';
 
 @mixin option($background-color, $hover-color, $text-color: black) {
     cursor: pointer;
@@ -21,19 +15,18 @@ $shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 .multiselect-container {
+    @include shadow;
     position: relative;
-    background-color: $background-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px $shadow-color;
+    background-color: $background-color-secondary;
+    border-radius: $border-radius;
 
     .input-container {
+        @include border;
         display: grid;
         min-height: 36px;
         grid-template-columns: 1fr auto;
-        border: 1px solid $border-color;
-        border-radius: 8px;
         padding: 8px;
-        background-color: white;
+        background-color: $background-color-primary;
 
         @media screen and (max-width: 768px) {
             grid-template-columns: 1fr;
@@ -57,7 +50,7 @@ $shadow-color: rgba(0, 0, 0, 0.1);
             }
 
             .selected-option {
-                @include option($primary-color, $secondary-color, white);
+                @include option($primary-color-dark, $primary-color-light);
             }
         }
 
@@ -67,25 +60,24 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     }
 
     .options-container {
+        @include border;
+        @include shadow;
         box-sizing: border-box;
         position: absolute;
         display: grid;
         width: 100%;
         grid-template-columns: repeat(auto-fill, $option-width);
-        border: 1px solid $border-color;
-        border-radius: 8px;
-        background-color: white;
+        background-color: $background-color-primary;
         border-top: none;
         padding: 5px;
         gap: 10px;
-        box-shadow: 0 4px 8px $shadow-color;
 
         @media screen and (max-width: 576px) {
             grid-template-columns: 1fr;
         }
 
         .option {
-            @include option($background-color, $hover-background-color);
+            @include option($background-color-secondary, $primary-color-light);
         }
     }
 }

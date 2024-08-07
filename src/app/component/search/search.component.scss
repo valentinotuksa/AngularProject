@@ -1,10 +1,4 @@
-$option-width: minmax(150px, 1fr);
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f6f8f8;
-$border-color: #dee2e6;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
+@import '../../../assets/css/variables';
 
 .searchBar {
     box-sizing: border-box;
@@ -13,7 +7,7 @@ $shadow-color: rgba(0, 0, 0, 0.1);
     height: 100%;
     border: none;
     outline: none;
-    border-radius: 8px;
     padding: 8px;
-    background-color: $background-color;
+    border-radius: $border-radius;
+    background-color: $background-color-secondary;
 }

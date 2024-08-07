@@ -6,15 +6,16 @@
     ></app-table-search>
 
     <div class="table-container">
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="table-header">
                 <tr>
                     <th
                         *ngFor="let column of getDataColumns()"
                         (click)="onClickSort(column)"
+                        class="table-header-cell"
                         [ngClass]="{ active: column === sortedColumn }"
                     >
-                        <div class="temp">
+                        <div class="table-header-text">
                             <div>
                                 {{ column | splitCamelCase | capitalizeFirst }}
                             </div>
@@ -27,7 +28,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeesOnCurrentPage">
-                    <td *ngFor="let column of getDataColumns()">
+                    <td *ngFor="let column of getDataColumns()" class="table-data-cell">
                         <!-- {{ employee[column] }} -->
                         <span
                             [innerHTML]="

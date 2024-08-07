@@ -1,7 +1,17 @@
 <div class="pagination">
-    <a href="#" class="item">«</a>
+    <a
+        class="item"
+        [ngClass]="{ disabled: currentPage === 1 }"
+        (click)="currentPage !== 1 && pageClick(currentPage - 1)"
+        >«</a
+    >
     <a class="item" *ngFor="let page of pages" [ngClass]="{ active: page == currentPage }" (click)="pageClick(page)">
         {{ page }}</a
     >
-    <a href="#" class="item">»</a>
+    <a
+        class="item"
+        [ngClass]="{ disabled: currentPage === pages.length }"
+        (click)="currentPage !== pages.length && pageClick(currentPage + 1)"
+        >»</a
+    >
 </div>

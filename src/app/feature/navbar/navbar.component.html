@@ -1,16 +1,32 @@
 <nav class="navbar">
-    <div>
-        <a class="navbar-title" routerLink="/">Data Display</a>
+    <div class="navbar-container">
+        <div>
+            <a class="navbar-title" routerLink="/">Data Display</a>
+        </div>
+
+        <ul class="navbar-menu">
+            <li class="navbar-button">
+                <a routerLink="/home" routerLinkActive="active-link"
+                    ><span><ng-icon name="heroHome"></ng-icon> Home</span></a
+                >
+            </li>
+            <li class="navbar-button">
+                <a routerLink="/add" routerLinkActive="active-link"><span>Add</span></a>
+            </li>
+        </ul>
+
+        <div class="navbar-toggle" (click)="toggleDropdown()">
+            <div *ngFor="let i of [1, 2, 3]" [ngClass]="getBarClass(i)"></div>
+        </div>
     </div>
-
-    <ul class="navbar-menu">
-        <li class="navbar-button">
-            <a routerLink="/home" routerLinkActive="active-link"> <span>Home</span></a>
-        </li>
-        <li class="navbar-button">
-            <a routerLink="/add" routerLinkActive="active-link"><span>Add</span></a>
-        </li>
-    </ul>
-
-    <!-- <div class="navbar-toggle"></div> -->
+    <div>
+        <ul class="dropdown-menu" *ngIf="dropdownVisible">
+            <li class="dropdown-button">
+                <a routerLink="/home" routerLinkActive="active-dropdown">Home</a>
+            </li>
+            <li class="dropdown-button">
+                <a routerLink="/add" routerLinkActive="active-dropdown">Add</a>
+            </li>
+        </ul>
+    </div>
 </nav>

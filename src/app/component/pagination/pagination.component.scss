@@ -1,8 +1,4 @@
-$primary-color: #007bff;
-$secondary-color: #54a6ff;
-$background-color: #f8f9fa;
-$hover-background-color: #e2e6ea;
-$shadow-color: rgba(0, 0, 0, 0.1);
+@import '../../../assets/css/_variables.scss';
 
 .pagination {
     display: flex;
@@ -10,29 +6,37 @@ $shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 .item {
+    @include shadow;
     color: black;
     text-decoration: none;
     padding: 10px 15px;
     margin: 5px;
     cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px $shadow-color;
+    border-radius: $border-radius;
     transition: background-color 0.1s, box-shadow 0.1s;
 
     &:hover {
-            background-color: $hover-background-color;
-            box-shadow: 0 4px 8px $shadow-color;
+        background-color: $primary-color-light;
+    }
+
+    &.disabled {
+        background-color: $border-color;
+        color: white;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: $border-color; // Override hover state
         }
+    }
 }
 
 .active {
+    @include shadow;
     background-color: $primary-color;
     color: white;
-    box-shadow: 0 4px 8px $shadow-color;
     transition: background-color 0.1s, box-shadow 0.1s;
 
     &:hover {
-        background-color: $secondary-color;
-        box-shadow: 0 4px 8px $shadow-color;
+        background-color: $primary-color-dark;
     }
 }
