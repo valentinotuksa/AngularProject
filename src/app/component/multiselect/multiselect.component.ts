@@ -21,13 +21,10 @@ export class MultiselectComponent implements OnChanges {
     dropdownVisible: boolean = false;
     private initialized: boolean = false;
 
-    ngOnChanges(changes: SimpleChanges): void {
-        if (changes['options']) {
-            if (this.filteredOptions.size < 1 && this.options.size > 1 && !this.initialized) {
-                this.options = changes['options'].currentValue;
-                this.filteredOptions = changes['options'].currentValue;
-                this.initialized = true;
-            }
+    ngOnChanges({ options }: SimpleChanges): void {
+        if (options && this.filteredOptions.size < 1 && this.options.size > 1 && !this.initialized) {
+            this.options = this.filteredOptions = options.currentValue;
+            this.initialized = true;
         }
     }
 
