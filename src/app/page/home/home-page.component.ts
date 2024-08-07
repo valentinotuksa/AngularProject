@@ -5,7 +5,7 @@ import { EmployeeTableComponent } from '../../feature/employee-table/employee-ta
     selector: 'app-home',
     standalone: true,
     imports: [EmployeeTableComponent],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss',
+    templateUrl: './home-page.component.html',
+    styleUrl: './home-page.component.scss',
 })
-export class HomeComponent {}
+export class HomePageComponent {}

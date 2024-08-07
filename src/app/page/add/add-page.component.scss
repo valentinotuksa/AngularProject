@@ -1,0 +1,51 @@
+$option-width: minmax(150px, 1fr);
+$primary-color: #007bff;
+$secondary-color: #54a6ff;
+$background-color: #f6f8f8;
+$border-color: #dee2e6;
+$hover-background-color: #e2e6ea;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+form {
+    width: 30vw;
+    margin: auto;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $shadow-color;
+    padding: 8px;
+    display: grid;
+    gap: 16px;
+
+    label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    input[type='text'],
+    input[type='date'] {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        background-color: white;
+        &:focus {
+            border-color: $primary-color;
+            outline: none;
+        }
+    }
+
+    button[type='submit'] {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
+        cursor: pointer;
+        &:disabled {
+            background-color: $border-color;
+            cursor: not-allowed;
+        }
+    }
+}

@@ -36,9 +36,9 @@ interface Employee {
 export class EmployeeTableComponent implements OnInit {
     private subscription: Subscription = new Subscription();
     private employeesData: Employee[] = [];
-    private selectedJobTitles: string[] = [];
     private employeesFiltered: Employee[] = [];
     private searchValue: string = '';
+    private selectedJobTitles: string[] = [];
     itemsPerPage: number = 8;
     currentPage: number = 1;
     numberOfItems: number = 0;
@@ -49,8 +49,8 @@ export class EmployeeTableComponent implements OnInit {
 
     ngOnInit(): void {
         this.subscription = this.employeeService.getEmployees().subscribe({
-            next: (data) => {
-                this.employeesData = data.data.map((employee: Employee) => ({
+            next: (response) => {
+                this.employeesData = response.data.map((employee: Employee) => ({
                     ...employee,
                     dateOfBirth: new Date(employee.dateOfBirth).toLocaleDateString(),
                 }));
@@ -103,15 +103,14 @@ export class EmployeeTableComponent implements OnInit {
 
     private filterAndSortEmployees(): void {
         this.employeesFiltered = this.employeesData.filter((employee) => {
-            const { jobTitle, firstName, lastName, dateOfBirth } = employee;
+            const { jobTitle, firstName, lastName } = employee;
 
             const matchesJobTitle = this.selectedJobTitles.length === 0 || this.selectedJobTitles.includes(jobTitle);
 
             const fullName = [firstName.toLowerCase(), lastName.toLowerCase()];
             const searchWords = this.searchValue.toLowerCase().split(' ');
-            const matchesSearch = searchWords.every(
-                (searchWord) =>
-                    fullName.some((namePart) => namePart.includes(searchWord)) || dateOfBirth.includes(searchWord)
+            const matchesSearch = searchWords.every((searchWord) =>
+                fullName.some((namePart) => namePart.includes(searchWord))
             );
 
             return matchesJobTitle && matchesSearch;
