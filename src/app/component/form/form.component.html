@@ -1,0 +1,17 @@
+<form class="form" #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+    <div *ngFor="let field of formFields">
+        <label class="form-label" for="{{ field.name }}"
+            >{{ field.name }}:</label
+        >
+        <input
+            class="form-input"
+            name="{{ field.name }}"
+            type="{{ field.type }}"
+            [required]="field.required"
+            ngModel
+        />
+    </div>
+    <button class="form-submit" type="submit" [disabled]="!addForm.form.valid">
+        Submit
+    </button>
+</form>

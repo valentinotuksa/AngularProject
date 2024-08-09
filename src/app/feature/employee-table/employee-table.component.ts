@@ -50,10 +50,14 @@ export class EmployeeTableComponent implements OnInit {
     ngOnInit(): void {
         this.subscription = this.employeeService.getEmployees().subscribe({
             next: (response) => {
-                this.employeesData = response.data.map((employee: Employee) => ({
-                    ...employee,
-                    dateOfBirth: new Date(employee.dateOfBirth).toLocaleDateString(),
-                }));
+                this.employeesData = response.data.map(
+                    (employee: Employee) => ({
+                        ...employee,
+                        dateOfBirth: new Date(
+                            employee.dateOfBirth
+                        ).toLocaleDateString(),
+                    })
+                );
 
                 this.employeesFiltered = this.employeesData;
                 this.numberOfItems = this.employeesData.length;
@@ -65,9 +69,7 @@ export class EmployeeTableComponent implements OnInit {
     }
 
     ngOnDestroy(): void {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
+        if (this.subscription) this.subscription.unsubscribe();
     }
 
     getDataColumns(): string[] {
@@ -78,7 +80,9 @@ export class EmployeeTableComponent implements OnInit {
     }
 
     get allJobTitles(): Set<string> {
-        return new Set(this.employeesData.map((employee) => employee.jobTitle).sort());
+        return new Set(
+            this.employeesData.map((employee) => employee.jobTitle).sort()
+        );
     }
 
     onClickSort(column: string): void {
@@ -105,7 +109,9 @@ export class EmployeeTableComponent implements OnInit {
         this.employeesFiltered = this.employeesData.filter((employee) => {
             const { jobTitle, firstName, lastName } = employee;
 
-            const matchesJobTitle = this.selectedJobTitles.length === 0 || this.selectedJobTitles.includes(jobTitle);
+            const matchesJobTitle =
+                this.selectedJobTitles.length === 0 ||
+                this.selectedJobTitles.includes(jobTitle);
 
             const fullName = [firstName.toLowerCase(), lastName.toLowerCase()];
             const searchWords = this.searchValue.toLowerCase().split(' ');
@@ -119,7 +125,10 @@ export class EmployeeTableComponent implements OnInit {
         this.employeesFiltered.sort((a, b) => {
             const [first, second] =
                 this.sortedColumn === 'dateOfBirth'
-                    ? [new Date(a[this.sortedColumn]), new Date(b[this.sortedColumn])]
+                    ? [
+                          new Date(a[this.sortedColumn]),
+                          new Date(b[this.sortedColumn]),
+                      ]
                     : [a[this.sortedColumn], b[this.sortedColumn]];
 
             if (first < second) {
@@ -147,7 +156,10 @@ export class EmployeeTableComponent implements OnInit {
 
     get employeesOnCurrentPage(): Employee[] {
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-        return this.employeesFiltered.slice(startIndex, startIndex + this.itemsPerPage);
+        return this.employeesFiltered.slice(
+            startIndex,
+            startIndex + this.itemsPerPage
+        );
     }
 
     onChangedPage(page: number): void {

@@ -19,65 +19,65 @@
     position: relative;
     background-color: $background-color-secondary;
     border-radius: $border-radius;
+}
 
-    .input-container {
-        @include border;
-        display: grid;
-        min-height: 36px;
-        grid-template-columns: 1fr auto;
-        padding: 8px;
-        background-color: $background-color-primary;
+.input-container {
+    @include border;
+    display: grid;
+    min-height: 36px;
+    grid-template-columns: 1fr auto;
+    padding: 8px;
+    background-color: $background-color-primary;
 
-        @media screen and (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
-
-        .selected-options-container {
-            display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: $option-width;
-            align-items: center;
-            scrollbar-width: thin;
-            overflow: auto;
-
-            @media screen and (max-width: 768px) {
-                grid-auto-flow: row;
-                grid-template-columns: repeat(auto-fill, $option-width);
-            }
-
-            @media screen and (max-width: 576px) {
-                grid-template-columns: 1fr;
-            }
-
-            .selected-option {
-                @include option($primary-color-dark, $primary-color-light);
-            }
-        }
-
-        .search {
-            min-width: 200px;
-        }
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
     }
+}
 
-    .options-container {
-        @include border;
-        @include shadow;
-        box-sizing: border-box;
-        position: absolute;
-        display: grid;
-        width: 100%;
+.search-bar {
+    min-width: 200px;
+}
+
+.selected-options-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: $option-width;
+    align-items: center;
+    scrollbar-width: thin;
+    overflow: auto;
+
+    @media screen and (max-width: 768px) {
+        grid-auto-flow: row;
         grid-template-columns: repeat(auto-fill, $option-width);
-        background-color: $background-color-primary;
-        border-top: none;
-        padding: 5px;
-        gap: 10px;
-
-        @media screen and (max-width: 576px) {
-            grid-template-columns: 1fr;
-        }
-
-        .option {
-            @include option($background-color-secondary, $primary-color-light);
-        }
     }
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.selected-option {
+    @include option($primary-color-dark, $primary-color-light);
+}
+
+.options-dropdown {
+    @include border;
+    @include shadow;
+    box-sizing: border-box;
+    position: absolute;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, $option-width);
+    background-color: $background-color-primary;
+    border-top: none;
+    padding: 5px;
+    gap: 10px;
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dropdown-option {
+    @include option($background-color-secondary, $primary-color-light);
 }

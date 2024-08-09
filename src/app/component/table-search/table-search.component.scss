@@ -12,17 +12,17 @@
     @media screen and (max-width: 768px) {
         flex-direction: column;
     }
+}
 
-    .search-container {
-        @include border;
-        @include shadow;
-        box-sizing: border-box;
-        flex: 0 0 40%;
-        min-height: 36px;
-        padding: 8px;
-    }
+.search-container {
+    @include border;
+    @include shadow;
+    box-sizing: border-box;
+    flex: 0 0 40%;
+    min-height: 36px;
+    padding: 8px;
+}
 
-    .multiselect {
-        flex-grow: 1;
-    }
+.multiselect {
+    flex-grow: 1;
 }
