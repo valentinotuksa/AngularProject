@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { FormField } from '../../interfaces/form-field.interface';
 
 @Component({
     selector: 'app-form',
@@ -9,20 +10,12 @@ import { FormsModule, NgForm } from '@angular/forms';
     templateUrl: './form.component.html',
     styleUrl: './form.component.scss',
 })
-export class FormComponent implements OnInit {
-    @Input() formFields: any[] = [];
+export class FormComponent {
+    @Input() formFields: FormField[] = [];
     @Output() formSubmitted: EventEmitter<NgForm> = new EventEmitter<NgForm>();
-
-    ngOnInit(): void {
-        // console.log('Form Fields:', this.formFields);
-    }
 
     onSubmit(form: NgForm) {
         if (form.valid) {
-            // const formData = form.value;
-            // form.resetForm();
-            // console.log('Form Data:', formData);
-
             this.formSubmitted.emit(form);
         }
     }

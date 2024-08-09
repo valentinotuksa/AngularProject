@@ -3,29 +3,34 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { FormComponent } from '../../component/form/form.component';
 import { SendEmployeeService } from '../../service/send-employee.service';
 import { Subscription } from 'rxjs';
+import { FormField } from '../../interfaces/form-field.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-add',
     standalone: true,
-    imports: [FormsModule, FormComponent],
+    imports: [CommonModule, FormsModule, FormComponent],
     templateUrl: './add-page.component.html',
     styleUrls: ['./add-page.component.scss'],
     providers: [SendEmployeeService],
 })
 export class AddPageComponent {
     private subscription: Subscription = new Subscription();
-    field = [
+    field: FormField[] = [
         { name: 'First Name', type: 'text', required: true },
         { name: 'Last Name', type: 'text', required: true },
         { name: 'Date of Birth', type: 'date', required: true },
         { name: 'Position', type: 'text', required: true },
     ];
+    message: string = '';
+    messageClass: string = '';
 
     constructor(private sendEmployeeService: SendEmployeeService) {}
 
     onFormSubmitted(form: NgForm): void {
         if (!this.validateForm(form.value)) {
-            console.log('Form is invalid');
+            this.messageClass = 'fail';
+            this.message = 'Form data is invalid';
             return;
         }
 
@@ -34,6 +39,8 @@ export class AddPageComponent {
             .subscribe({
                 next: (response) => {
                     console.log('Data sent successfully:', response);
+                    this.messageClass = 'success';
+                    this.message = 'Form submitted successfully.';
                     form.resetForm();
                 },
                 error: (error) => {

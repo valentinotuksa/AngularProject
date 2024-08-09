@@ -7,15 +7,7 @@ import { Subscription } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { SplitCamelCasePipe } from '../../pipe/split-camel-case.pipe';
 import { CapitalizeFirstPipe } from '../../pipe/capitalize-first.pipe';
-
-interface Employee {
-    [key: string]: any;
-    id: number;
-    firstName: string;
-    lastName: string;
-    dateOfBirth: string;
-    jobTitle: string;
-}
+import { Employee } from '../../interfaces/employee.interface';
 
 @Component({
     selector: 'app-employee-table',

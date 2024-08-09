@@ -1,4 +1,7 @@
 <div class="form-container">
+    <div class="message-container" [ngClass]="messageClass">
+        <p class="message">{{ message }}</p>
+    </div>
     <app-form
         (formSubmitted)="onFormSubmitted($event)"
         [formFields]="field"

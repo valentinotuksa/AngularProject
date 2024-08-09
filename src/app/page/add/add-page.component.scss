@@ -7,3 +7,32 @@
         margin: 20px 2vw;
     }
 }
+
+.message-container {
+    @include border;
+    @include shadow;
+    display: none;
+    max-width: 500px;
+    margin: auto;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: $border-radius;
+}
+
+.message {
+    margin: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.fail {
+    display: block;
+    background-color: hsl(0, 60%, 60%);
+    border-color: hsl(0, 60%, 80%);
+}
+
+.success {
+    display: block;
+    background-color: hsl(120, 25%, 50%);
+    border-color: hsl(120, 25%, 70%);
+}

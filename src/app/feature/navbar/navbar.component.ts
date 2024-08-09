@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroCube, heroHome, heroUserPlus } from '@ng-icons/heroicons/outline';
+import { NavbarLink } from '../../interfaces/navbar-link.interface';
 
 @Component({
     selector: 'app-navbar',
@@ -13,7 +14,7 @@ import { heroCube, heroHome, heroUserPlus } from '@ng-icons/heroicons/outline';
     viewProviders: [provideIcons({ heroHome, heroUserPlus, heroCube })],
 })
 export class NavbarComponent {
-    navLinks = [
+    navLinks: NavbarLink[] = [
         { path: '/home', label: 'Home', icon: 'heroHome' },
         { path: '/add', label: 'Add Employee', icon: 'heroUserPlus' },
     ];
