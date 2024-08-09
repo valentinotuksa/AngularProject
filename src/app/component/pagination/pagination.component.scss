@@ -25,7 +25,7 @@
         cursor: not-allowed;
 
         &:hover {
-            background-color: $border-color; // Override hover state
+            background-color: $border-color;
         }
     }
 }

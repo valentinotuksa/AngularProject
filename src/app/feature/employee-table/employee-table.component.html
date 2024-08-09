@@ -28,11 +28,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeesOnCurrentPage">
-                    <td *ngFor="let column of getDataColumns()" class="table-data-cell">
-                        <!-- {{ employee[column] }} -->
+                    <td
+                        *ngFor="let column of getDataColumns()"
+                        class="table-data-cell"
+                    >
                         <span
                             [innerHTML]="
-                                column === 'jobTitle' ? employee[column] : getHighlightedText(employee[column])
+                                column === 'jobTitle'
+                                    ? employee[column]
+                                    : getHighlightedText(employee[column])
                             "
                         ></span>
                     </td>
