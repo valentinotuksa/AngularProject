@@ -1,25 +1,27 @@
 <nav class="navbar">
     <div class="navbar-container">
         <div>
-            <a class="navbar-title" routerLink="/">Data Display</a>
+            <a class="navbar-title" routerLink="/"
+                ><ng-icon name="heroCube"></ng-icon>Data Display</a
+            >
         </div>
 
         <ul class="navbar-menu">
-            <li class="navbar-button-container">
+            <li class="navbar-button-container" *ngFor="let link of navLinks">
                 <a
                     class="navbar-button"
-                    routerLink="/home"
+                    [routerLink]="link.path"
                     routerLinkActive="active-navbar-button"
-                    ><span><ng-icon name="heroHome"></ng-icon> Home</span></a
                 >
-            </li>
-            <li class="navbar-button-container">
-                <a
-                    class="navbar-button"
-                    routerLink="/add"
-                    routerLinkActive="active-navbar-button"
-                    ><span>Add</span></a
-                >
+                    <span
+                        ><ng-icon
+                            style="--ng-icon__stroke-width: 1.7"
+                            *ngIf="link.icon"
+                            [name]="link.icon"
+                        ></ng-icon>
+                        {{ link.label }}</span
+                    >
+                </a>
             </li>
         </ul>
 
@@ -33,21 +35,14 @@
     </div>
     <div>
         <ul class="dropdown-menu" *ngIf="dropdownVisible">
-            <li class="dropdown-button-container">
+            <li class="dropdown-button-container" *ngFor="let link of navLinks">
                 <a
                     class="dropdown-button"
-                    routerLink="/home"
+                    [routerLink]="link.path"
                     routerLinkActive="active-dropdown-button"
-                    >Home</a
                 >
-            </li>
-            <li class="dropdown-button-container">
-                <a
-                    class="dropdown-button"
-                    routerLink="/add"
-                    routerLinkActive="active-dropdown-button"
-                    >Add</a
-                >
+                    {{ link.label }}
+                </a>
             </li>
         </ul>
     </div>
