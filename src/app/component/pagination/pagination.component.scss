@@ -1,42 +1,38 @@
-@import '../../../assets/css/_variables.scss';
-
 .pagination {
     display: flex;
     justify-content: center;
 }
 
 .item {
-    @include shadow;
     color: black;
     text-decoration: none;
     padding: 10px 15px;
     margin: 5px;
     cursor: pointer;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     transition: background-color 0.1s, box-shadow 0.1s;
 
     &:hover {
-        background-color: $primary-color-light;
+        background-color: var(--primary-color-light);
     }
 
     &.disabled {
-        background-color: $border-color;
+        background-color: var(--border-color);
         color: white;
         cursor: not-allowed;
 
         &:hover {
-            background-color: $border-color;
+            background-color: var(--border-color);
         }
     }
 }
 
 .active {
-    @include shadow;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     color: white;
     transition: background-color 0.1s, box-shadow 0.1s;
 
     &:hover {
-        background-color: $primary-color-dark;
+        background-color: var(--primary-color-dark);
     }
 }

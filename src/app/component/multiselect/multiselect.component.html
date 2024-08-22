@@ -1,9 +1,9 @@
 <div
-    class="multiselect-container"
+    class="shadow multiselect-container"
     appClickOutside
     (clickOutside)="closeDropdown()"
 >
-    <div class="input-container">
+    <div class="border input-container">
         <app-search
             class="search-bar"
             [searchValue]="searchTerm"
@@ -21,7 +21,7 @@
             </span>
         </div>
     </div>
-    <div *ngIf="dropdownVisible" class="options-dropdown">
+    <div *ngIf="dropdownVisible" class="shadow border options-dropdown">
         <div
             *ngFor="let option of filteredOptions"
             class="dropdown-option"

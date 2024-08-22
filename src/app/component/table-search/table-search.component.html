@@ -1,6 +1,9 @@
 <div class="table-search">
-    <div class="search-container">
-        <app-search (searchValueChange)="onSearchUpdated($event)"></app-search>
+    <div class="border shadow search-container">
+        <app-search
+            (searchValueChange)="onSearchUpdated($event)"
+            placeholder="Search employees..."
+        ></app-search>
     </div>
 
     <app-multiselect

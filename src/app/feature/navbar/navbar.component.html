@@ -1,7 +1,7 @@
 <nav class="navbar">
-    <div class="navbar-container">
+    <div class="shadow border navbar-container">
         <div>
-            <a class="navbar-title" routerLink="/"
+            <a class="center navbar-title" routerLink="/"
                 ><ng-icon name="heroCube"></ng-icon>Data Display</a
             >
         </div>
@@ -9,11 +9,11 @@
         <ul class="navbar-menu">
             <li class="navbar-button-container" *ngFor="let link of navLinks">
                 <a
-                    class="navbar-button"
+                    class="center navbar-button"
                     [routerLink]="link.path"
                     routerLinkActive="active-navbar-button"
                 >
-                    <span
+                    <span class="center"
                         ><ng-icon
                             style="--ng-icon__stroke-width: 1.7"
                             *ngIf="link.icon"
@@ -34,10 +34,13 @@
         </div>
     </div>
     <div>
-        <ul class="dropdown-menu" *ngIf="dropdownVisible">
-            <li class="dropdown-button-container" *ngFor="let link of navLinks">
+        <ul class="center shadow border dropdown-menu" *ngIf="dropdownVisible">
+            <li
+                class="center dropdown-button-container"
+                *ngFor="let link of navLinks"
+            >
                 <a
-                    class="dropdown-button"
+                    class="center dropdown-button"
                     [routerLink]="link.path"
                     routerLinkActive="active-dropdown-button"
                 >

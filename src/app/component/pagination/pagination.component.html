@@ -1,11 +1,16 @@
 <div class="pagination">
     <a
-        class="item"
+        class="shadow item"
         [ngClass]="{ disabled: currentPage === 1 }"
         (click)="currentPage !== 1 && pageClick(currentPage - 1)"
         >«</a
     >
-    <a class="item" *ngFor="let page of pages" [ngClass]="{ active: page == currentPage }" (click)="pageClick(page)">
+    <a
+        class="item"
+        *ngFor="let page of pages"
+        [ngClass]="{ active: page == currentPage }"
+        (click)="pageClick(page)"
+    >
         {{ page }}</a
     >
     <a

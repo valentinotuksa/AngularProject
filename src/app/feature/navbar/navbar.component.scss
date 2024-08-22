@@ -1,5 +1,3 @@
-@import '../../../assets/css/variables';
-
 .navbar {
     margin: 20px 10vw;
 
@@ -9,19 +7,16 @@
 }
 
 .navbar-container {
-    @include shadow;
-    @include border;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    background-color: $background-color-primary;
-    border-radius: $border-radius;
+    background-color: var(--background-color-primary);
+    border-radius: var(--border-radius);
     overflow: hidden;
 }
 
 .navbar-title {
-    @include center;
     color: #252731;
     text-decoration: none;
     font-size: 1.5em;
@@ -45,22 +40,20 @@
 
 .navbar-button-container {
     min-width: 100px;
-    border-bottom: 2px solid $background-color-secondary;
+    border-bottom: 2px solid var(--background-color-secondary);
 
     &:hover {
-        border-bottom: 2px solid $primary-color-dark;
+        border-bottom: 2px solid var(--primary-color-dark);
     }
 }
 
 .navbar-button {
-    @include center;
     width: 100%;
     height: 100%;
     text-decoration: none;
     color: #000;
 
     span {
-        @include center;
         padding: 0 20px;
         gap: 0.3em;
 
@@ -70,30 +63,27 @@
     }
 
     &:hover {
-        color: $primary-color-dark;
+        color: var(--primary-color-dark);
     }
 }
 
 .active-navbar-button {
-    border-bottom: 2px solid $primary-color-light;
-    color: $primary-color-light;
+    border-bottom: 2px solid var(--primary-color-light);
+    color: var(--primary-color-light);
     font-weight: bold;
 
     &:hover {
-        border-bottom: 2px solid $primary-color-dark;
+        border-bottom: 2px solid var(--primary-color-dark);
     }
 }
 
 .dropdown-menu {
-    @include center;
-    @include shadow;
-    @include border;
     flex-direction: column;
     list-style: none;
-    background-color: $background-color-primary;
+    background-color: var(--background-color-primary);
     padding: 10px;
     gap: 10px;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
 
     @media (min-width: 769px) {
         display: none;
@@ -101,28 +91,26 @@
 }
 
 .dropdown-button-container {
-    @include center;
     width: 100%;
     height: 40px;
 }
 
 .dropdown-button {
-    @include center;
     width: 100%;
     height: 100%;
-    border-radius: $border-radius;
-    background-color: $background-color-secondary;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color-secondary);
     color: black;
     text-decoration: none;
 
     &:hover {
-        background-color: $primary-color-light;
+        background-color: var(--primary-color-light);
         color: black;
     }
 }
 
 .active-dropdown-button {
-    background-color: $primary-color-dark;
+    background-color: var(--primary-color-dark);
     color: black;
 }
 
@@ -142,7 +130,7 @@
     background-color: black;
     margin: 5px 0;
     transition: 0.4s;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
 
     $translate: 6.3px;
     &.bar1 {

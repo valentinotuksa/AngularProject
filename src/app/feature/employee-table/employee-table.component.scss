@@ -1,7 +1,5 @@
-@import '../../../assets/css/variables';
-
 .highlight {
-    color: $primary-color-dark;
+    color: var(--primary-color-dark);
     font-weight: bold;
 }
 
@@ -17,27 +15,25 @@
 }
 
 .active {
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     color: black;
 }
 
 .table-container {
-    @include shadow;
     overflow: auto;
 }
 
 .table {
-    @include shadow;
     min-width: 500px;
     width: 100%;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     border-spacing: 0;
     overflow: hidden;
 }
 
 .table-header {
-    background-color: $background-color-secondary;
+    background-color: var(--background-color-secondary);
 }
 
 .table-header-cell {
@@ -49,10 +45,9 @@
 
 .table-data-cell {
     padding: 10px;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid var(--border-color);
 }
 
 .table-header-text {
-    @include center;
     justify-content: space-between;
 }

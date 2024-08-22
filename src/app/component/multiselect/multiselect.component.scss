@@ -1,12 +1,10 @@
-@import '../../../assets/css/variables';
-
-@mixin option($background-color, $hover-color, $text-color: black) {
+@mixin option($background-color, $hover-color) {
     cursor: pointer;
     text-align: center;
     padding: 2px 8px;
     margin: 2px;
     border-radius: 4px;
-    color: $text-color;
+    color: var(--text-color);
     background-color: $background-color;
 
     &:hover {
@@ -15,19 +13,16 @@
 }
 
 .multiselect-container {
-    @include shadow;
     position: relative;
-    background-color: $background-color-secondary;
-    border-radius: $border-radius;
+    background-color: var(--background-color-secondary);
+    border-radius: var(--border-radius);
 }
 
 .input-container {
-    @include border;
     display: grid;
-    min-height: 36px;
     grid-template-columns: 1fr auto;
     padding: 8px;
-    background-color: $background-color-primary;
+    background-color: var(--background-color-primary);
 
     @media screen and (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -41,14 +36,14 @@
 .selected-options-container {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: $option-width;
+    grid-auto-columns: var(--option-width);
     align-items: center;
     scrollbar-width: thin;
     overflow: auto;
 
     @media screen and (max-width: 768px) {
         grid-auto-flow: row;
-        grid-template-columns: repeat(auto-fill, $option-width);
+        grid-template-columns: repeat(auto-fill, var(--option-width));
     }
 
     @media screen and (max-width: 576px) {
@@ -57,18 +52,15 @@
 }
 
 .selected-option {
-    @include option($primary-color-dark, $primary-color-light);
+    @include option(var(--primary-color), var(--primary-color-light));
 }
 
 .options-dropdown {
-    @include border;
-    @include shadow;
-    box-sizing: border-box;
     position: absolute;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, $option-width);
-    background-color: $background-color-primary;
+    grid-template-columns: repeat(auto-fill, var(--option-width));
+    background-color: var(--background-color-primary);
     border-top: none;
     padding: 5px;
     gap: 10px;
@@ -79,5 +71,8 @@
 }
 
 .dropdown-option {
-    @include option($background-color-secondary, $primary-color-light);
+    @include option(
+        var(--background-color-secondary),
+        var(--primary-color-light)
+    );
 }

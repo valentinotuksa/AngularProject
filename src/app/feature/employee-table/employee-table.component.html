@@ -5,8 +5,8 @@
         [options]="allJobTitles"
     ></app-table-search>
 
-    <div class="table-container">
-        <table class="table">
+    <div class="shadow table-container">
+        <table class="shadow table">
             <thead class="table-header">
                 <tr>
                     <th
@@ -15,7 +15,7 @@
                         class="table-header-cell"
                         [ngClass]="{ active: column === sortedColumn }"
                     >
-                        <div class="table-header-text">
+                        <div class="center table-header-text">
                             <div>
                                 {{ column | splitCamelCase | capitalizeFirst }}
                             </div>

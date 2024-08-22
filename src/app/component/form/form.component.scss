@@ -1,10 +1,6 @@
-@import '../../../assets/css/variables';
-
 .form {
-    @include shadow;
-    @include border;
     max-width: 500px;
-    background-color: $background-color-primary;
+    background-color: var(--background-color-primary);
     padding: 8px;
     display: grid;
     margin: auto;
@@ -17,30 +13,29 @@
 }
 
 .form-input {
-    box-sizing: border-box;
     width: 100%;
     padding: 8px;
     border: none;
-    border-radius: $border-radius;
-    background-color: $background-color-secondary;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color-secondary);
     outline: none;
 }
 
 .form-submit {
-    background-color: $primary-color-dark;
+    background-color: var(--primary-color-dark);
     color: black;
     border: none;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     padding: 8px;
     cursor: pointer;
 
     &:disabled {
-        background-color: $border-color;
+        background-color: var(--border-color);
         color: white;
         cursor: not-allowed;
     }
 
     &:not(:disabled):hover {
-        background-color: $primary-color-light;
+        background-color: var(--primary-color-light);
     }
 }
